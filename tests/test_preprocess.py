@@ -13,5 +13,17 @@ def test_split_data():
         'Yearly Amount Spent': [10, 20, 30, 40]
     })
 
-    X_train, X_val, X_test, y_train, y_val, y_test = split_data(df, 0.25, 0.25, 42)
+    X_train, X_val, X_test, y_train, y_val, y_test = split_data(df, 0.25, 0.25, 0)
     assert len(X_train) + len(X_val) + len(X_test) == 4
+    assert 'Email' not in X_train.columns
+
+    print(f"\n🌈 Split Visualization:")
+    print(f"Train: {'🟦' * len(X_train)}")
+    print(f"Val:   {'🟩' * len(X_val)}")
+    print(f"Test:  {'🟥' * len(X_test)}")
+
+    print("✅ All rows accounted for!")
+
+if __name__ == "__main__":
+    test_split_data()
+
